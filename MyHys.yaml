@@ -1,0 +1,28 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+
+proxies:
+  - name: "my-IPv4"
+    type: hysteria2
+    server: vnnkvpnhub.duckdns.org
+    port: 53
+    auth: my:cTSHdr16S992FDcMhFgWM5cKnWrdJoKP
+    obfs: salamander
+    obfs-password: IKAN1oGUrQ1bFbSLQy2NNUsEa7ApHbhq
+    sni: bts.com
+    skip-cert-verify: true
+    pin-sha256: 16:38:D6:26:6B:13:1D:C2:71:F3:C0:DF:EA:0C:42:D1:3C:FA:B4:FA:9C:AE:DE:4E:69:FC:76:2F:1E:16:0A:D1
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "my-IPv4"
+      - DIRECT
+
+rules:
+  - GEOIP,CN,DIRECT
+  - MATCH,PROXY
