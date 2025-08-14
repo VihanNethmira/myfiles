@@ -1,0 +1,10 @@
+proxies:
+  - name: "My 443"
+    type: vless
+    server: vnnk.vpnxhub.net
+    port: 443
+    uuid: a36c0de8-3210-4e59-8c96-779ba3e7cab9
+    tls: true
+    flow: ""
+    network: tcp
+    skip-cert-verify: true
